@@ -9,9 +9,12 @@ import {
   HeroH1,
   HeroP,
   VideoBg,
+  ImageBg,
 } from "./HeroElements";
+import { BrowserView, MobileView } from "react-device-detect";
 
 import Video from "../../videos/video.mp4";
+import HeroImg from "../../images/heroImg.jpg";
 import { Button } from "../ButtonElement";
 
 const HeroSection = () => {
@@ -22,16 +25,26 @@ const HeroSection = () => {
 
   return (
     <HeroContainer>
-      <HeroBg>
-        <VideoBg autoPlay loop muted src={Video} type="video/mp4" />
-      </HeroBg>
+      <BrowserView>
+
+        <HeroBg>
+          <VideoBg autoPlay loop muted src={Video} type="video/mp4" />
+        </HeroBg>
+      </BrowserView>
+      <MobileView>
+
+        <HeroBg>
+          <ImageBg src={HeroImg} />
+        </HeroBg>
+      </MobileView>
+
       <HeroContent>
         <HeroH1>ЯрКава - яркое кофе для новых вершин!</HeroH1>
         <HeroP>
           Зарегестрируйтесь в нашем приложении и получите Cappuccino XL
           бесплатно!
         </HeroP>
-        <HeroBtnWrapper >
+        <HeroBtnWrapper>
           <Button
             primary="true"
             dark="true"
